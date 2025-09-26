@@ -1,0 +1,60 @@
+parisTimes = [630, 1100, 1450, 1950]
+dublinTimes = [610, 1050, 1540, 2030]
+barcelonaTimes = [1020, 1820]
+belfastTimes = [900, 1730]
+amsterdamTimes = [1020, 2100]
+madridTimes = [1215]
+lisbonTimes = [1340]
+berlinTimes = [1450]
+destinations = ['Paris', 'Barcelona', 'Madrid', 'Lisbon', 'Dublin', 'Belfast', 'Berlin', 'Amsterdam']
+dest = ''
+def country(choice):
+    if choice.capitalize() in destinations:
+        if choice.capitalize() == 'Paris':
+            print('Here are the flight times to Paris')
+            print(parisTimes)
+            dest = parisTimes
+            return dest
+        elif choice.capitalize() == 'Dublin':
+            print('Here are the flight times to Dublin')
+            print(dublinTimes)
+            dest = dublinTimes
+        elif choice.capitalize() == 'Barcelona':
+            print('Here are the flight times to Barcelona')
+            print(barcelonaTimes)
+            dest = barcelonaTimes
+        elif choice.capitalize() == 'Belfast':
+            print('Here are the flight times to Belfast')
+            print(belfastTimes)
+            dest = belfastTimes
+        elif choice.capitalize() == 'Amsterdam':
+            print('Here are the flight times to Amsterdam')
+            print(amsterdamTimes)
+            dest = amsterdamTimes
+        elif choice.capitalize() == 'Madrid':
+            print('Here are the flight times to Madrid')
+            print(madridTimes)
+            dest = parisTimes
+        elif choice.capitalize() == 'Lisbon':
+            print('Here are the flight times to Lisbon')
+            print(lisbonTimes)
+            dest = lisbonTimes
+        elif choice.capitalize() == 'Berlin':
+            print('Here are the flight times to Berlin')
+            print(berlinTimes)
+            dest = berlinTimes
+
+    else:
+        print('Not one of our destinations')
+
+def time(choiceTime):
+    if choiceTime == 1:
+        print(country(choice(dest[1])))
+    
+
+print(destinations)
+choice = input('What country would you like to fly to? ')
+country(choice)
+
+choiceTime = int(input('Which time of flight would you like to pick? Option 1, 2, etc... '))
+time(choiceTime)
