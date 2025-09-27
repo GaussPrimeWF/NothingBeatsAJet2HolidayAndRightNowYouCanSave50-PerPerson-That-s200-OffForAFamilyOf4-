@@ -1,0 +1,137 @@
+# -----------------------------------------------------------------
+destinations = ['Paris', 'Dublin', 'Barcelona', 'Belfast', 'Amsterdam', 'Madrid', 'Lisbon', 'Berlin']
+parisTimes = [630, 1100, 1450, 1950]
+dublinTimes = [610, 1050, 1540, 2030]
+barcelonaTimes = [1020, 1820]
+belfastTimes = [900, 1730]
+amsterdamTimes = [1020, 2100]
+madridTimes = [1215]
+lisbonTimes = [1340]
+berlinTimes = [1450]
+dest = []
+c = 0
+choice = ''
+choiceTime = ''
+answer = ''
+# -----------------------------------------------------------------
+
+def country(choice):
+    print(destinations)
+    choice = input('Choose the country for your destination >>>  ')
+    
+    if choice.capitalize() in destinations:
+        if choice.capitalize() == 'Paris':
+            print('Here are the flight times to Paris')
+            print(parisTimes)
+            return(parisTimes)
+
+        elif choice.capitalize() == 'Dublin':
+            print('Here are the flight times to Dublin')
+            print(dublinTimes)
+            return(dublinTimes)
+
+        elif choice.capitalize() == 'Barcelona':
+            print('Here are the flight times to Barcelona')
+            print(barcelonaTimes)
+            return(barcelonaTimes)
+        
+        elif choice.capitalize() == 'Belfast':
+            print('Here are the flight times to Belfast')
+            print(belfastTimes)
+            return(belfastTimes)
+        
+        elif choice.capitalize() == 'Amsterdam':
+            print('Here are the flight times to Amsterdam')
+            print(amsterdamTimes)
+            return(amsterdamTimes)
+        
+        elif choice.capitalize() == 'Madrid':
+            print('Here are the flight times to Madrid')
+            print(madridTimes)
+            return(madridTimes)
+        
+        elif choice.capitalize() == 'Lisbon':
+            print('Here are the flight times to Lisbon')
+            print(lisbonTimes)
+            return(lisbonTimes)
+        
+        elif choice.capitalize() == 'Berlin':
+            print('Here are the flight times to Berlin')
+            print(berlinTimes)
+            return(berlinTimes)
+        
+    else:
+        print('Not one of our destinations')
+
+def time(choiceTime):
+    choiceTime = int(input('Choose time of flight (1, 2, etc) >>>  '))    
+    if choice.capitalize() == 'Paris':
+        if choiceTime == 1:
+            print(parisTimes[0])
+            return(parisTimes[0])
+        elif choiceTime == 2:
+            print(parisTimes[1])
+        elif choiceTime == 3:
+            print(parisTimes[2])
+        elif choiceTime == 4:
+            print(parisTimes[3])
+            
+    elif choice.capitalize() == 'Dublin':
+        if choiceTime == 1:
+            print(dublinTimes[0])
+        elif choiceTime == 2:
+            print(dublinTimes[1])
+        elif choiceTime == 3:
+            print(dublinTimes[2])
+        elif choiceTime == 4:
+            print(dublinTimes[3])            
+
+    elif choice.capitalize() == 'Barcelona':
+        if choiceTime == 1:
+            print(barcelonaTimes[0])
+        elif choiceTime == 2:
+            print(barcelonaTimes[1])
+        
+    elif choice.capitalize() == 'Belfast':
+        if choiceTime == 1:
+            print(belfastTimes[0])
+        elif choiceTime == 2:
+            print(belfastTimes[1])
+        
+    elif choice.capitalize() == 'Amsterdam':
+        if choiceTime == 1:
+            print(amsterdamTimes[0])
+        elif choiceTime == 2:
+            print(amsterdamTimes[1])
+         
+        
+    elif choice.capitalize() == 'Madrid':
+        if choiceTime == 1:
+            print(madridTimes[0])
+            
+    elif choice.capitalize() == 'Lisbon':
+        if choiceTime == 1:
+            print(lisbonTimes[0])
+            
+    elif choice.capitalize() == 'Berlin':
+        if choiceTime == 1:
+            print(berlinTimes[0])
+
+def confirm(answer):
+    print(choice, choiceTime)
+    answer = input('Is this the correct country and time? Yes / No >>>  ')    
+    if answer.capitalize() == 'Yes':
+        print(choice, choiceTime)
+    elif answer.capitalize() == 'No':
+        country(choice)
+        time(choiceTime)
+        confirm(answer)
+    else:
+        print('You will pay for your sins against Grineer Lt. Vay Hek')
+
+
+    
+
+country(choice)
+time(choiceTime)
+confirm(answer)
