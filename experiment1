@@ -127,7 +127,7 @@ def confirm(answer):
         time(choiceTime)
         confirm(answer)
     else:
-        print('You will pay for your sins against Grineer Lt. Vay Hek')
+        print('Vay Hek, a 2-bit despot with a brain half-an-inch wide and a face like a rejected skin graft')
 
 
     
