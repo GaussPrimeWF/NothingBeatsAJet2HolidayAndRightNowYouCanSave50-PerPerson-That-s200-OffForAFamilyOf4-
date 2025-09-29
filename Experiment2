@@ -52,7 +52,7 @@ def country(choice):
             return(choice.capitalize())#
     else:
         print('Not one of our destinations')
-def time(choice,choiceTime):#add choice
+def time(choice, choiceTime):#add choice
     choiceTime = int(input('Choose time of flight (1, 2, etc) >>>  '))    
     if choice.capitalize() == 'Paris':#can take off the .capitalize if you want since its been saved in the other function
         timesList = parisTimes#create a variable choosing which array you want a time from - do for each - all if/elif statements printing the chosen time are fine but can remove if you want to
@@ -106,6 +106,7 @@ def time(choice,choiceTime):#add choice
         if choiceTime == 1:
             print(berlinTimes[0])
     return timesList[choiceTime-1]#return a time in the array rather than the inputted indexish number
+
 def confirm(answer, choice, choiceTime):#add choice and choiceTime
     print(choice, choiceTime)
     answer = input('Is this the correct country and time? Yes / No >>>  ')    
@@ -119,6 +120,13 @@ def confirm(answer, choice, choiceTime):#add choice and choiceTime
         print('Vay Hek, a 2-bit despot with a brain half-an-inch wide and a face like a rejected skin graft')
 
 
-choice=country(choice)#when you make the variable = function, whatever is returned at end is the new value of the variable
-choiceTime=time(choice,choiceTime)#add choice variable into it  # add choiceTime= for same reason as ^
-confirm(answer,choice,choiceTime)#add choice and choiceTime to it
+
+
+
+
+
+
+choice = country(choice)#when you make the variable = function, whatever is returned at end is the new value of the variable
+if choice in destinations:
+    choiceTime = time(choice, choiceTime)
+    confirm(answer, choice, choiceTime)
