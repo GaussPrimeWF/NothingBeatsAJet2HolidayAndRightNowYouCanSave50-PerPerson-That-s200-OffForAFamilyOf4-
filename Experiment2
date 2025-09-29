@@ -1,0 +1,124 @@
+# -----------------------------------------------------------------
+destinations = ['Paris', 'Dublin', 'Barcelona', 'Belfast', 'Amsterdam', 'Madrid', 'Lisbon', 'Berlin']
+parisTimes = [630, 1100, 1450, 1950]
+dublinTimes = [610, 1050, 1540, 2030]
+barcelonaTimes = [1020, 1820]
+belfastTimes = [900, 1730]
+amsterdamTimes = [1020, 2100]
+madridTimes = [1215]
+lisbonTimes = [1340]
+berlinTimes = [1450]
+dest = []
+c = 0
+choice = ''
+choiceTime = ''
+answer = ''
+# -----------------------------------------------------------------
+def country(choice):
+    print(destinations)
+    choice = input('Choose the country for your destination >>>  ')
+    if choice.capitalize() in destinations:
+        if choice.capitalize() == 'Paris':
+            print('Here are the flight times to Paris')
+            print(parisTimes)
+            return(choice.capitalize())#returning this actually does something rather than the entire array as a variable value
+        elif choice.capitalize() == 'Dublin':
+            print('Here are the flight times to Dublin')
+            print(dublinTimes)
+            return(choice.capitalize())#
+        elif choice.capitalize() == 'Barcelona':
+            print('Here are the flight times to Barcelona')
+            print(barcelonaTimes)
+            return(choice.capitalize())#
+        elif choice.capitalize() == 'Belfast':
+            print('Here are the flight times to Belfast')
+            print(belfastTimes)
+            return(choice.capitalize())#
+        elif choice.capitalize() == 'Amsterdam':
+            print('Here are the flight times to Amsterdam')
+            print(amsterdamTimes)
+            return(choice.capitalize())#
+        elif choice.capitalize() == 'Madrid':
+            print('Here are the flight times to Madrid')
+            print(madridTimes)
+            return(choice.capitalize())#
+        elif choice.capitalize() == 'Lisbon':
+            print('Here are the flight times to Lisbon')
+            print(lisbonTimes)
+            return(choice.capitalize())#
+        elif choice.capitalize() == 'Berlin':
+            print('Here are the flight times to Berlin')
+            print(berlinTimes)
+            return(choice.capitalize())#
+    else:
+        print('Not one of our destinations')
+def time(choice,choiceTime):#add choice
+    choiceTime = int(input('Choose time of flight (1, 2, etc) >>>  '))    
+    if choice.capitalize() == 'Paris':#can take off the .capitalize if you want since its been saved in the other function
+        timesList = parisTimes#create a variable choosing which array you want a time from - do for each - all if/elif statements printing the chosen time are fine but can remove if you want to
+        if choiceTime == 1:
+            print(parisTimes[0])
+        elif choiceTime == 2:
+            print(parisTimes[1])
+        elif choiceTime == 3:
+            print(parisTimes[2])
+        elif choiceTime == 4:
+            print(parisTimes[3])
+    elif choice.capitalize() == 'Dublin':#
+        timesList=dublinTimes#
+        if choiceTime == 1:
+            print(dublinTimes[0])
+        elif choiceTime == 2:
+            print(dublinTimes[1])
+        elif choiceTime == 3:
+            print(dublinTimes[2])
+        elif choiceTime == 4:
+            print(dublinTimes[3])            
+    elif choice.capitalize() == 'Barcelona':#
+        timesList=barcelonaTimes#
+        if choiceTime == 1:
+            print(barcelonaTimes[0])
+        elif choiceTime == 2:
+            print(barcelonaTimes[1])
+    elif choice.capitalize() == 'Belfast':#
+        timesList=belfastTimes#
+        if choiceTime == 1:
+            print(belfastTimes[0])
+        elif choiceTime == 2:
+            print(belfastTimes[1])
+    elif choice.capitalize() == 'Amsterdam':#
+        timesList=amsterdamTimes#
+        if choiceTime == 1:
+            print(amsterdamTimes[0])
+        elif choiceTime == 2:
+            print(amsterdamTimes[1])
+ 
+    elif choice.capitalize() == 'Madrid':#
+        timesList=madridTimes#
+        if choiceTime == 1:
+            print(madridTimes[0])
+    elif choice.capitalize() == 'Lisbon':#
+        timesList=lisbonTimes#
+        if choiceTime == 1:
+            print(lisbonTimes[0])
+    elif choice.capitalize() == 'Berlin':#
+        timeslist=berlinTimes#
+        if choiceTime == 1:
+            print(berlinTimes[0])
+    return timesList[choiceTime-1]#return a time in the array rather than the inputted indexish number
+def confirm(answer, choice, choiceTime):#add choice and choiceTime
+    print(choice, choiceTime)
+    answer = input('Is this the correct country and time? Yes / No >>>  ')    
+    if answer.capitalize() == 'Yes':
+        print(choice, choiceTime)
+    elif answer.capitalize() == 'No':
+        choice=country(choice)#add choice=so that it changes the city if they want to because otherwise it will stick with the same wrong choice
+        choiceTime=time(choice,choiceTime)#add choice  #add choiceTime= for same reason as ^
+        confirm(answer,choice,choiceTime)#add choice and choiceTime
+    else:
+        print('Vay Hek, a 2-bit despot with a brain half-an-inch wide and a face like a rejected skin graft')
+
+
+choice=country(choice)#when you make the variable = function, whatever is returned at end is the new value of the variable
+choiceTime=time(choice,choiceTime)#add choice variable into it  # add choiceTime= for same reason as ^
+confirm(answer,choice,choiceTime)#add choice and choiceTime to it
