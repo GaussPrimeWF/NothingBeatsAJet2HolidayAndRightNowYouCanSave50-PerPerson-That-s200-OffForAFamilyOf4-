@@ -9,14 +9,14 @@ madridTimes = [1215]
 lisbonTimes = [1340]
 berlinTimes = [1450]
 dest = []
-c = 0
+price = 0
 choice = ''
 choiceTime = ''
 answer = ''
 # -----------------------------------------------------------------
 def country(choice):
     print(destinations)
-    choice = input('Choose the country for your destination >>>  ')
+    choice = input('Choose the city for your destination  >>>  ')
     if choice.capitalize() in destinations:
         if choice.capitalize() == 'Paris':
             print('Here are the flight times to Paris')
@@ -53,7 +53,7 @@ def country(choice):
     else:
         print('Not one of our destinations')
 def time(choice, choiceTime):#add choice
-    choiceTime = int(input('Choose time of flight (1, 2, etc) >>>  '))    
+    choiceTime = int(input('Choose time of flight (1, 2, etc)  >>>  '))    
     if choice.capitalize() == 'Paris':#can take off the .capitalize if you want since its been saved in the other function
         timesList = parisTimes#create a variable choosing which array you want a time from - do for each - all if/elif statements printing the chosen time are fine but can remove if you want to
         if choiceTime == 1:
@@ -109,24 +109,62 @@ def time(choice, choiceTime):#add choice
 
 def confirm(answer, choice, choiceTime):#add choice and choiceTime
     print(choice, choiceTime)
-    answer = input('Is this the correct country and time? Yes / No >>>  ')    
+    answer = input('Is this the correct city and time? Yes / No  >>>  ')    
     if answer.capitalize() == 'Yes':
         print(choice, choiceTime)
     elif answer.capitalize() == 'No':
         choice=country(choice)#add choice=so that it changes the city if they want to because otherwise it will stick with the same wrong choice
-        choiceTime=time(choice,choiceTime)#add choice  #add choiceTime= for same reason as ^
-        confirm(answer,choice,choiceTime)#add choice and choiceTime
+        choiceTime=time(choice, choiceTime)#add choice  #add choiceTime= for same reason as ^
+        confirm(answer, choice, choiceTime)#add choice and choiceTime
     else:
         print('Vay Hek, a 2-bit despot with a brain half-an-inch wide and a face like a rejected skin graft')
-
-
-
-
-
-
-
 
 choice = country(choice)#when you make the variable = function, whatever is returned at end is the new value of the variable
 if choice in destinations:
     choiceTime = time(choice, choiceTime)
     confirm(answer, choice, choiceTime)
+
+def hungry(meals):
+    
+    
+seats = int(input('How many seats? 1-6  >>>  '))
+meals = input('Inflight meal(s)? Yes or No (Unavaliable for Dublin and Belfast flights) £20pp  >>>  ')
+board = input('Priority boarding? £30pp  >>>  ')
+if choiceTime < 901:
+    price = seats * 150
+    if meals.capitalize() == 'Yes':
+        if choice == 'Dublin' or choice == 'Belfast':
+            print('Inflight meals unavaliable')
+            print('The total flight cost is:', price)
+        else:
+            seats = seats * 20
+            price = price + seats
+            print('The total flight cost is:', price)
+    elif meals.capitalize() == 'No':
+        print('The total flight cost is:', price)
+
+elif choiceTime < 1700:
+    price = seats * 90
+    if meals.capitalize() == 'Yes':
+        if choice == 'Dublin' or choice == 'Belfast':
+            print('Inflight meals unavaliable')
+            print('The total flight cost is:', price)
+        else:
+            seats = seats * 20
+            price = price + seats
+            print('The total flight cost is:', price)
+    elif meals.capitalize() == 'No':
+        print('The total flight cost is:', price)
+
+elif choiceTime < 2400:
+    price = seats * 120
+    if meals.capitalize() == 'Yes':
+        if choice == 'Dublin' or choice == 'Belfast':
+            print('Inflight meals unavaliable')
+            print('The total flight cost is:', price)
+        else:
+            seats = seats * 20
+            price = price + seats
+            print('The total flight cost is:', price)
+    elif meals.capitalize() == 'No':
+        print('The total flight cost is:', price)
